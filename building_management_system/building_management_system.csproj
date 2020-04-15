@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F90DBCCB-7D2F-471A-AA01-E86E625B181E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>building_management_system</RootNamespace>
+    <AssemblyName>building_management_system</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>.\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.licensekey">
+      <HintPath>.\itextsharp.licensekey.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>.\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xfaworker">
+      <HintPath>.\itextsharp.xfaworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>.\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>.\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="Jint">
+      <HintPath>.\Jint.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>.\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassValidations.cs" />
+    <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="refreshQueries.cs" />
+    <Compile Include="UC_buildingInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_buildingInformation.Designer.cs">
+      <DependentUpon>UC_buildingInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_expand_general.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_expand_general.Designer.cs">
+      <DependentUpon>UC_expand_general.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_FloorCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_FloorCategory.Designer.cs">
+      <DependentUpon>UC_FloorCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_FloorNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_FloorNumber.Designer.cs">
+      <DependentUpon>UC_FloorNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_graph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_graph.Designer.cs">
+      <DependentUpon>UC_graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_home.Designer.cs">
+      <DependentUpon>UC_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_JobPosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_JobPosition.Designer.cs">
+      <DependentUpon>UC_JobPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_lepanto_logo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_lepanto_logo.Designer.cs">
+      <DependentUpon>UC_lepanto_logo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_admin_profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_admin_profile.Designer.cs">
+      <DependentUpon>UC_admin_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_lepnatoLogoDARKfont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_lepnatoLogoDARKfont.Designer.cs">
+      <DependentUpon>UC_lepnatoLogoDARKfont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_add.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_add.Designer.cs">
+      <DependentUpon>UC_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_personnel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_personnel.Designer.cs">
+      <DependentUpon>UC_personnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_printingPdfReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_printingPdfReport.Designer.cs">
+      <DependentUpon>UC_printingPdfReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Profile.Designer.cs">
+      <DependentUpon>UC_Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_files.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_files.Designer.cs">
+      <DependentUpon>UC_files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_reading.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_reading.Designer.cs">
+      <DependentUpon>UC_reading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_schedules.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_schedules.Designer.cs">
+      <DependentUpon>UC_schedules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Submeter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Submeter.Designer.cs">
+      <DependentUpon>UC_Submeter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_team.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_team.Designer.cs">
+      <DependentUpon>UC_team.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_tenants.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_tenants.Designer.cs">
+      <DependentUpon>UC_tenants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_utilititesType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_utilititesType.Designer.cs">
+      <DependentUpon>UC_utilititesType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_view_profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_view_profile.Designer.cs">
+      <DependentUpon>UC_view_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_welcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_welcome.Designer.cs">
+      <DependentUpon>UC_welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_works.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_works.Designer.cs">
+      <DependentUpon>UC_works.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_noContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_noContent.Designer.cs">
+      <DependentUpon>UC_noContent.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UC_buildingInformation.resx">
+      <DependentUpon>UC_buildingInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_expand_general.resx">
+      <DependentUpon>UC_expand_general.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_FloorCategory.resx">
+      <DependentUpon>UC_FloorCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_FloorNumber.resx">
+      <DependentUpon>UC_FloorNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_graph.resx">
+      <DependentUpon>UC_graph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_home.resx">
+      <DependentUpon>UC_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_JobPosition.resx">
+      <DependentUpon>UC_JobPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_lepanto_logo.resx">
+      <DependentUpon>UC_lepanto_logo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_admin_profile.resx">
+      <DependentUpon>UC_admin_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_lepnatoLogoDARKfont.resx">
+      <DependentUpon>UC_lepnatoLogoDARKfont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_add.resx">
+      <DependentUpon>UC_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_personnel.resx">
+      <DependentUpon>UC_personnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_printingPdfReport.resx">
+      <DependentUpon>UC_printingPdfReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Profile.resx">
+      <DependentUpon>UC_Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_files.resx">
+      <DependentUpon>UC_files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_reading.resx">
+      <DependentUpon>UC_reading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_schedules.resx">
+      <DependentUpon>UC_schedules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Submeter.resx">
+      <DependentUpon>UC_Submeter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_team.resx">
+      <DependentUpon>UC_team.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_tenants.resx">
+      <DependentUpon>UC_tenants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_utilititesType.resx">
+      <DependentUpon>UC_utilititesType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_view_profile.resx">
+      <DependentUpon>UC_view_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_welcome.resx">
+      <DependentUpon>UC_welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_works.resx">
+      <DependentUpon>UC_works.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_noContent.resx">
+      <DependentUpon>UC_noContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo1inch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo1inch1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_1inch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\balcc_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_perm_identity_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_error_outline_black_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_error_outline_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_person_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_assignment_ind_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_https_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mini_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BA Lepanto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_done_black_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_done_all_white_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_account_box_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_person_add_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_person_add_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_account_box_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_account_box_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_arrow_back_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_account_box_black_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_reorder_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_reorder_white_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_reorder_white_24dp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_home_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_account_box_white_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_group_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_event_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_date_range_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_work_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_settings_applications_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_description_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_chevron_left_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_chevron_left_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_chevron_left_black_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_chevron_left_black_24dp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_add_a_photo_black_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\me.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\me1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_https_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_account_box_black_18dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_account_box_black_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_https_black_18dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_error_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_error_outline_black_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_attachment_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_attachment_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_folder_open_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_perm_identity_black_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_arrow_back_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_arrow_back_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_apps_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_apps_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_swap_horiz_white_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_reorder_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_reorder_white_24dp3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_account_box_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_assignment_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_input_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_error_outline_black_48dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_error_outline_black_48dp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_error_outline_black_36dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_add_a_photo_black_36dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_print_black_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_arrow_back_black_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_arrow_back_white_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_arrow_forward_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_close_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_cached_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_search_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_add_a_photo_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_group_white_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_delete_forever_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_close_white_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_done_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_cancel_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1baliktad.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1baliktad1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1baliktad2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1baliktad3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1baliktad11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_done_white_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theme1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theme2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_done_white_24dp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_done_white_32dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_delete_forever_white_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_settings_input_antenna_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_mode_edit_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_mode_edit_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_border_color_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_note_add_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_person_add_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_person_outline_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_person_outline_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_person_outline_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_trending_flat_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onlineDot_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_exit_to_app_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_close_white_32dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_profile_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_person_outline_white_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LINE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_trending_up_white_48dp.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
